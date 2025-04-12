@@ -395,7 +395,7 @@ public class BasePage {
 		new Actions(driver).moveToElement(getWebElement(driver, getDynamicXpath(locator, dynamicValues))).perform();
 	}
 	
-	public void pressKeyToElement(WebDriver driver, String locator, Keys key) {
+	public void pressKeyToElement(WebDriver driver, String locator, String name, Keys key) {
 		new Actions(driver).sendKeys(getWebElement(driver, locator), key).perform();
 	}
 	

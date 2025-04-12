@@ -35,8 +35,7 @@ public class BaseTest {
 	protected WebDriver getBrowserDriver(String url) {
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--allow-running-insecure-content");
-		options.addArguments("--disable-web-security");
+		options.addArguments("--user-data-dir=C:\\Users\\TGS\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1");
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().window().maximize();

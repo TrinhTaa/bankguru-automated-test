@@ -12,22 +12,9 @@ public class HomePO extends BasePage{
 		this.driver = driver;
 	}
 
-	public void clickToAccountButton(WebDriver driver) {
-		waitForElementClickable(driver, HomeUI.Home_button_Account);
-		clickToElement(driver, HomeUI.Home_button_Account);
-		
-	}
-
-	public void clickToRegisterMenu(WebDriver driver) {
-		waitForElementClickable(driver, HomeUI.Home_menu_Register);
-		clickToElement(driver, HomeUI.Home_menu_Register);
-		
-	}
-	
-	public void clickToMyAccountMenu(WebDriver driver) {
-		waitForElementClickable(driver, HomeUI.Home_menu_MyAccount);
-		clickToElement(driver, HomeUI.Home_menu_MyAccount);
-		
+	public void clickToBankProject(WebDriver driver) {
+		waitForElementClickable(driver, HomeUI.BankProject_dropdown);
+		clickToElement(driver, HomeUI.BankProject_dropdown);		
 	}
 
 }
