@@ -2,6 +2,7 @@ package User;
 
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -230,9 +231,9 @@ public class Topic_01_NewCusomer extends BaseTest{
 		}
 	}
 	
-	@AfterTest
+	@AfterSuite
 	public void afterClass() {
-//		closeBrowserDriver();
+		closeBrowserDriver();
 	}
 
 }
