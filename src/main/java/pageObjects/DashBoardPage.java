@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
 import pageUI.DashBoardUI;
-import pageUI.EditCustomerUI;
 
 public class DashBoardPage extends BasePage {
 	WebDriver driver;

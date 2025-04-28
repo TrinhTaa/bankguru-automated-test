@@ -49,6 +49,30 @@ public class NewCustomerPage extends BasePage {
 		 waitForElementVisible(driver, NewCustomerUI.Dynamic_input, name);
 		 pressKeyToElement(driver, NewCustomerUI.Dynamic_input, Keys.CLEAR , name);
 	 }
+
+	public void inputDataToAddress(String value) {
+		scrollToElementOnDown(driver, NewCustomerUI.Address_textarea);
+		waitForElementVisible(driver, NewCustomerUI.Address_textarea);
+		sendkeyToElement(driver, NewCustomerUI.Address_textarea, value);
+		
+	}
+
+	public String getMessageOfAddress() {
+		waitForElementVisible(driver, NewCustomerUI.Address_message);
+		String message = getElementText(driver, NewCustomerUI.Address_message);
+		return message;
+	}
+
+	public void clickToAddress() {
+		scrollToElementOnDown(driver, NewCustomerUI.Address_textarea);
+		waitForElementClickable(driver, NewCustomerUI.Address_textarea);
+		clickToElement(driver, NewCustomerUI.Address_textarea);
+	}
+
+	public void sendTabToAddress() {
+		sendKeyboardToElement(driver, NewCustomerUI.Address_textarea, Keys.TAB);
+		
+	}
 	
 	
 

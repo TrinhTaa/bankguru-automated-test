@@ -19,7 +19,7 @@ public class DeleteCustomer extends BasePage {
     }
 
     public void sendTabToFieldByname(String fieldName) {
-        pressKeyToElement(driver, DeleteCustomerUI.Dynamic_input, fieldName, Keys.TAB);
+        pressKeyToElement(driver, DeleteCustomerUI.Dynamic_input, Keys.TAB, fieldName);
     }
 
     public String getMessageOfFieldByName(String fieldName) {
@@ -27,5 +27,11 @@ public class DeleteCustomer extends BasePage {
         String message = getElementText(driver, DeleteCustomerUI.Dynamic_message, fieldName);
         return message;
     }
+
+	public void SendDataToElementByName(String FieldName, String value) {
+		waitForElementVisible(driver, DeleteCustomerUI.Dynamic_input, FieldName);
+		sendkeyToElement(driver, DeleteCustomerUI.Dynamic_input, value, FieldName);
+		
+	}
 
 }

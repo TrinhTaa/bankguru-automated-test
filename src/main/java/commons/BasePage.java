@@ -419,8 +419,8 @@ public class BasePage {
 		new Actions(driver).dragAndDrop(getWebElement(driver, sourceXpath), getWebElement(driver, targetXpath)).perform();
 	}
 	
-	public void sendKeyboardToElement(WebDriver driver, String locator, String key) {
-		new Actions(driver).sendKeys(getWebElement(driver, locator), key).perform();
+	public void sendKeyboardToElement(WebDriver driver, String locator, Keys tab) {
+		new Actions(driver).sendKeys(getWebElement(driver, locator), tab).perform();
 	}
 
 	public void scrollToBottomPage(WebDriver driver) {

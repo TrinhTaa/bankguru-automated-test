@@ -13,7 +13,17 @@ public class EditCustomer extends BasePage{
         this.driver = driver;
     }
 
-    public void clickToTextboxByFieldName(String name) {
+    public void clickToAddressElement(WebDriver driver){
+        waitForElementClickable(driver, EditCustomerUI.Address_textarea);
+        clickToElement(driver, EditCustomerUI.Address_textarea);
+    }
+
+    public void sendTabToAddress(WebDriver driver){
+        sendKeyboardToElement(driver, EditCustomerUI.Address_textarea, Keys.TAB);
+    }
+
+    public void clickToElementByName(String name) {
+        scrollToElementOnDown(driver, EditCustomerUI.Dynamic_input, name);;
         waitForElementClickable(driver, EditCustomerUI.Dynamic_input, name);
         clickToElement(driver, EditCustomerUI.Dynamic_input, name);
     }
@@ -28,9 +38,11 @@ public class EditCustomer extends BasePage{
         return message;
     }
 
-    public void inputDataToTextboxByName(String name, String value) {
-       waitForElementVisible(driver, EditCustomerUI.Dynamic_input, value, name);
-       clickToElement(driver, EditCustomerUI.Dynamic_input, value, name);
+    public void SendTextToElementByName(String name, String value) {
+       scrollToElementOnDown(driver, EditCustomerUI.Dynamic_input, name);
+       waitForElementVisible(driver, EditCustomerUI.Dynamic_input, name);
+       clickToElement(driver, EditCustomerUI.Dynamic_input, name);
+       sendkeyToElement(driver, EditCustomerUI.Dynamic_input, value, name);
     }
 
     public void ClickToSubmitButton(WebDriver driver) {
@@ -38,9 +50,25 @@ public class EditCustomer extends BasePage{
         clickToElement(driver, EditCustomerUI.Submit_button);
     }
 
-    public void ClickToSubmitAccount(WebDriver driver2) {
-        waitForElementClickable(driver2, EditCustomerUI.SubmitAcc_button);
-        clickToElement(driver2, EditCustomerUI.SubmitAcc_button);
+    public void EditCustomerPageShouleBeVisible(WebDriver driver) {
+        waitForElementVisible(driver, EditCustomerUI.Heading_text);
     }
+    public void sendTextToAddress(String value) {
+        waitForElementClickable(driver, EditCustomerUI.Address_textarea);
+        sendkeyToElement(driver, EditCustomerUI.Address_textarea, value);
+    }
+
+    public String getWarningMessageOfAddress() {
+        waitForElementVisible(driver, EditCustomerUI.Address_message);
+        String message = getElementText(driver, EditCustomerUI.Address_message);
+        return  message;
+    }
+
+	public String getValueOfTextboxByName(String name, String attribute) {
+		scrollToElementOnDown(driver, EditCustomerUI.Dynamic_input, name);
+		waitForElementVisible(driver, EditCustomerUI.Dynamic_input, name);
+		String value = getElementAttribute( driver, EditCustomerUI.Dynamic_input, attribute, name);
+		return value;
+	}
 
 }

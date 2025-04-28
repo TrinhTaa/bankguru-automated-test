@@ -2,8 +2,6 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
-import User.DeleteCustomer;
-
 
 public class PageGeneratorManager {
 	

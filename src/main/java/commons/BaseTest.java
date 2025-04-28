@@ -15,6 +15,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -37,26 +38,11 @@ public class BaseTest {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--user-data-dir=C:\\Users\\TGS\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1");
 		driver = new ChromeDriver(options);
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(url);
 		return driver;
-	}
-
-	private String getEnvironmentUrl(String environmentName) {
-		String url = null;
-		switch (environmentName) {
-		case "DEV":
-			url = GlobalConstants.WEB_DEV_URL;
-			break;
-		case "STAGE":
-			url = GlobalConstants.WEB_STAGE_URL;
-			break;
-		case "PRODUCT":
-			url = GlobalConstants.WEB_PRODUCT_URL;
-			break;
-		}
-		return url;
 	}
 
 	protected int getRandomNumber() {
