@@ -18,25 +18,6 @@ public class Topic_01_NewCusomer extends BaseTest{
 	private String url = "https://demo.guru99.com/V4";
 	private String userid = "mngr616520";
 	private String pass = "etuhure";
-	private String ex_message_blank = "Customer name must not be blank";
-	private String ex_message_numberic = "Numbers are not allowed";
-	private String ex_message_specialCharacter = "Special characters are not allowed";
-	private String ex_message_first_character ="First chracter cannot be space";
-	private String city_message_blank = "City Field must be not blank";
-	private String city_message_numberic = "Numbers are not allowed";
-	private String city_message_special_characters = "Special characters are not allowed";
-	private String state_message_blank = "State must not be blank";
-	private String state_message_special_characters = "Special characters are not allowed";
-	private String state_message_numberic ="Numbers are not allowed";
-	private String PIN_numberic = "Characters are not allowed";
-	private String PIN_blank = "PIN Code must not be blank";
-	private String PIN_max_length = "PIN Code must have 6 Digits";
-	private String PIN_message_character = "Special characters are not allowed";
-	private String TELE_message_blank = "Telephone no must not be blank";
-	private String TELE_character_not_allow = "Characters are not allowed";
-	private String TELE_special_character = "Special characters are not allowed";
-	private String Email_message_blank = "Email-ID must not be blank";
-	private String Email_incorrect_format = "Email-ID is not valid";
 	private HomePO homePage;
 	private LoginPage loginPage;
 	private DashBoardPage dashboard;
@@ -66,21 +47,21 @@ public class Topic_01_NewCusomer extends BaseTest{
 		newcustomer.clickToTextboxByName("name");
 		newcustomer.sendTabToFieldByName("name");
 		String actual_message = newcustomer.getMessageOfFieldByName("name");
-		verifyEquals(actual_message, ex_message_blank);	
+		verifyEquals(actual_message, "Customer name must not be blank");	
 	}
 	
 	@Test
 	public void NC02_Name_cannot_be_numberic () {
 		newcustomer.inputDataToTextboxByName("name", "1234");
 		String actual = newcustomer.getMessageOfFieldByName("name");
-		verifyEquals(actual, ex_message_numberic);
+		verifyEquals(actual, "Numbers are not allowed");
 	}
 	
 	@Test
 	public void NC03_Check_special_characters () {
 		newcustomer.inputDataToTextboxByName("name", "name!@#");
 		String actual = newcustomer.getMessageOfFieldByName("name");
-		verifyEquals(actual, ex_message_specialCharacter);
+		verifyEquals(actual, "Special characters are not allowed");
 	}
 	
 	@Test
@@ -88,26 +69,24 @@ public class Topic_01_NewCusomer extends BaseTest{
 		log.info("Input space as first character");
 		newcustomer.inputDataToTextboxByName("name", " ");
 		String message = newcustomer.getMessageOfFieldByName("name");
-		verifyEquals(message, ex_message_first_character);
+		verifyEquals(message, "First chracter cannot be space");
 	}
 	
 	@Test
 	public void NC05_Address_blank() {
-		String addr_blank = "ADDRESS cannot be empty";
 		log.info("Check address blank");
 		newcustomer.clickToAddress();
 		newcustomer.sendTabToAddress();
 		String message = newcustomer.getMessageOfAddress();
-		verifyEquals(message, addr_blank);
+		verifyEquals(message, "ADDRESS cannot be empty");
 	}
 	
 	@Test
 	public void NC06_Address_check_first_character() {
-		String addr_first_chracter = "First character cannot be space";
 		log.info("Check first character of address");
 		newcustomer.inputDataToAddress(" ");
 		String message = newcustomer.getMessageOfAddress();
-		verifyEquals(message, addr_first_chracter);
+		verifyEquals(message, "First character cannot be space");
 	}
 	
 	@Test
@@ -115,30 +94,29 @@ public class Topic_01_NewCusomer extends BaseTest{
 		newcustomer.clickToTextboxByName("city");
 		newcustomer.sendTabToFieldByName("city");
 		String actual_message = newcustomer.getMessageOfFieldByName("city");
-		verifyEquals(actual_message, city_message_blank);
+		verifyEquals(actual_message, "City Field must be not blank");
 	}
 	
 	@Test
 	public void NC09_City_numberic() {
 		newcustomer.inputDataToTextboxByName("city", "1234");
 		String message = newcustomer.getMessageOfFieldByName("city");
-		verifyEquals(message, city_message_numberic);
+		verifyEquals(message, "Numbers are not allowed");
 	}
 	
 	@Test
 	public void NC10_City_check_special_characters() {
 		newcustomer.inputDataToTextboxByName("city", "city!@#");
 		String message = newcustomer.getMessageOfFieldByName("city");
-		verifyEquals(message, city_message_special_characters);
+		verifyEquals(message, "Special characters are not allowed");
 	}
 	
 	@Test
 	public void NC11_City_check_first_character() {
-		String city_first_character = "First character cannot be space";
 		log.info("check first chracter of city field");
 		newcustomer.inputDataToTextboxByName("city", " ");
 		String message = newcustomer.getMessageOfFieldByName("city");
-		verifyEquals(message, city_first_character);
+		verifyEquals(message, "First character cannot be space");
 	}
 	
 	@Test
@@ -146,37 +124,36 @@ public class Topic_01_NewCusomer extends BaseTest{
 		newcustomer.clickToTextboxByName("state");
 		newcustomer.sendTabToFieldByName("state");
 		String message = newcustomer.getMessageOfFieldByName("state");
-		verifyEquals(message, state_message_blank);
+		verifyEquals(message, "State must not be blank");
 	}
 	
 	@Test
 	public void NC13_Check_state_special_characters() {
 		newcustomer.inputDataToTextboxByName("state", "state!@#");
 		String message = newcustomer.getMessageOfFieldByName("state");
-		verifyEquals(message, state_message_special_characters);
+		verifyEquals(message, "Special characters are not allowed");
 	}
 	
 	@Test
 	public void NC14_Check_state_numberic() {
 		newcustomer.inputDataToTextboxByName("state", "1234");
 		String message = newcustomer.getMessageOfFieldByName("state");
-		verifyEquals(message, state_message_numberic);
+		verifyEquals(message, "Numbers are not allowed");
 	}
 	
 	@Test
 	public void NC15_State_check_first_character() {
-		String state_first_character = "First character cannot be space";
 		log.info("check first character of state field");
 		newcustomer.inputDataToTextboxByName("state", " ");
 		String message = newcustomer.getMessageOfFieldByName("state");
-		verifyEquals(message, state_first_character);
+		verifyEquals(message, "First character cannot be space");
 	}
 	
 	@Test
 	public void NC16_PIN_must_be_numberic() {
 		newcustomer.inputDataToTextboxByName("pinno", "123PIN");
 		String message = newcustomer.getMessageOfFieldByName("pinno");
-		verifyEquals(message, PIN_numberic);
+		verifyEquals(message, "Characters are not allowed");
 	}
 	
 	@Test
@@ -184,14 +161,14 @@ public class Topic_01_NewCusomer extends BaseTest{
 		newcustomer.clickToTextboxByName("pinno");
 		newcustomer.sendTabToFieldByName("pinno");
 		String message = newcustomer.getMessageOfFieldByName("pinno");
-		verifyEquals(message, PIN_blank);
+		verifyEquals(message, "PIN Code must not be blank");
 	}
 	
 	@Test
 	public void NC18_PIN_max_length() {
 		newcustomer.inputDataToTextboxByName("pinno", "1234");
 		String message = newcustomer.getMessageOfFieldByName("pinno");
-		verifyEquals(message, PIN_max_length);
+		verifyEquals(message, "PIN Code must have 6 Digits");
 		newcustomer.inputDataToTextboxByName("pinno", "12345678");
 		String value = newcustomer.getValueOfTextboxByName("pinno", "value");
 		verifyEquals(value.length(), 6);
@@ -201,25 +178,23 @@ public class Topic_01_NewCusomer extends BaseTest{
 	public void NC19_PIN_special_character() {
 		newcustomer.inputDataToTextboxByName("pinno", "pin!@#");
 		String message = newcustomer.getMessageOfFieldByName("pinno");
-		verifyEquals(message, PIN_message_character);
+		verifyEquals(message, "Special characters are not allowed");
 	}
 	
 	@Test
 	public void NC20_PIN_check_first_space_character() {
 		log.info("Check first space character");
-		String pin_first_space = "First character cannot be space";
 		newcustomer.inputDataToTextboxByName("pinno", " ");
 		String message = newcustomer.getMessageOfFieldByName("pinno");
-		verifyEquals(pin_first_space, message);
+		verifyEquals("First character cannot be space", message);
 	}
 	
 	@Test
 	public void NC21_PIN_include_blank_space() {
 		log.info("PIN cannot have blank space");
-		String pin_have_space = "PIN cannot have space";
 		newcustomer.inputDataToTextboxByName("pinno", "pin 123");
 		String message = newcustomer.getMessageOfFieldByName("pinno");
-		verifyEquals(pin_have_space, message);
+		verifyEquals("PIN cannot have space", message);
 	}
 	
 	@Test
@@ -232,27 +207,25 @@ public class Topic_01_NewCusomer extends BaseTest{
 		
 		log.info("Get and verify message field must not be blank");
 		String message = newcustomer.getMessageOfFieldByName("telephoneno");
-		verifyEquals(message, TELE_message_blank);
+		verifyEquals(message, "Telephone no must not be blank");
 	}
 	
 	@Test
 	public void NC23_Check_telephone_first_space_character() {
-		String tele_first_space_character = "First character cannot be space";
 		log.info("input first character as space to telephone field");
 		newcustomer.inputDataToTextboxByName("telephoneno", " ");
 		
 		log.info("Get message and verify character not allowed");
 		String message = newcustomer.getMessageOfFieldByName("telephoneno");
-		verifyEquals(message, tele_first_space_character);
+		verifyEquals(message, "First character cannot be space");
 	}
 	
 	@Test
 	public void NC24_Telephone_cannot_have_space() {
 		log.info("Telephone cannot have space");
-		String tele_have_space = "Telephone cannot have be space";
 		newcustomer.inputDataToTextboxByName("telephoneno", "123 123");
 		String message = newcustomer.getMessageOfFieldByName("telephoneno");
-		verifyEquals(tele_have_space, message);
+		verifyEquals("Telephone cannot have be space", message);
 	}
 	
 	@Test
@@ -264,7 +237,7 @@ public class Topic_01_NewCusomer extends BaseTest{
 			
 			log.info("Get and verify special character not allowed");
 			String message = newcustomer.getMessageOfFieldByName("telephoneno");
-			verifyEquals(message, TELE_special_character);
+			verifyEquals(message, "Special characters are not allowed");
 		}
 		
 	}
@@ -279,7 +252,7 @@ public class Topic_01_NewCusomer extends BaseTest{
 		
 		log.info("Get and verify Email must not be blank");
 		String message = newcustomer.getMessageOfFieldByName("emailid");
-		verifyEquals(message, Email_message_blank);
+		verifyEquals(message, "Email-ID must not be blank");
 	}
 	
 	@Test
@@ -291,7 +264,7 @@ public class Topic_01_NewCusomer extends BaseTest{
 			
 			log.info("Get and verify email  must be correct format");
 			String message = newcustomer.getMessageOfFieldByName("emailid");
-			verifyEquals(message, Email_incorrect_format);
+			verifyEquals(message, "Email-ID is not valid");
 		}
 	}
 	
@@ -303,7 +276,7 @@ public class Topic_01_NewCusomer extends BaseTest{
 		
 		log.info("Get and verify message");
 		String message = newcustomer.getMessageOfFieldByName("emailid");
-		verifyEquals(message, Email_incorrect_format);
+		verifyEquals(message, "Email-ID is not valid");
 	}
 	
 	@Test

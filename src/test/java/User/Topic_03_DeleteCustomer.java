@@ -43,59 +43,54 @@ public class Topic_03_DeleteCustomer extends BaseTest {
 
     @Test
     public void DC01_Check_CustomerId_empty(){
-        String ex_ID_empty = "Customer ID is required";
         log.info("Click to customer id");
         deletePage.clickToTextboxByFieldName("cusid");
         deletePage.sendTabToFieldByname("cusid");
 
         log.info("Get and verify message customer id must not be empty");
         String message = deletePage.getMessageOfFieldByName("cusid");
-        verifyEquals(message, ex_ID_empty);
+        verifyEquals(message, "Customer ID is required");
     }
     
     @Test
     public void DC02_CustomerId_must_be_numberic() {
-    	String ID_must_be_numberic = "Customer ID must be numberic";
     	String data[] = {"1234@", "acc1234"};
     	for(int i=0; i<data.length; i++) {
     		log.info("input id have character");
     		deletePage.SendDataToElementByName("cusid", data[i]);
     		String message = deletePage.getMessageOfFieldByName("cusid");
-    		verifyEquals(message, ID_must_be_numberic);
+    		verifyEquals(message, "Customer ID must be numberic");
     	}   	
     }
     
     @Test
     public void DC03_CustomerId_cannot_have_special_character() {
-    	String ID_exclude_special_character = "Special character are not allowed";
     	String data[]= {"123!@#", "!@#$"};
     	for(int i=0; i<data.length; i++) {
     		log.info("input data have special character to ID field");
     		deletePage.SendDataToElementByName("cusid", data[i]);
     		log.info("verify message about special character");
     		String message = deletePage.getMessageOfFieldByName("cusid");
-    		verifyEquals(message, ID_exclude_special_character);
+    		verifyEquals(message, "Special character are not allowed");
     	}
     }
     
     @Test
     public void DC04_CustomerId_cannot_have_blank_space() {
-    	String ID_cannot_have_space = "Customer ID cannot have blank space";
     	log.info("input data have blank space to customer id");
     	deletePage.SendDataToElementByName("cusid", "123 456");
     	log.info("verify message customer cannot have space");
     	String message = deletePage.getMessageOfFieldByName("cusid");
-    	verifyEquals(ID_cannot_have_space, message);
+    	verifyEquals("Customer ID cannot have blank space", message);
     }
     
     @Test
     public void DC05_First_character_cannot_be_space() {
-    	String first_character_cannot_be_space = "Customer ID cannot have first character space";
     	log.info("Enter first character space");
     	deletePage.SendDataToElementByName("cusid", " 1234");
     	log.info("verify message");
     	String message = deletePage.getMessageOfFieldByName("cusid");
-    	verifyEquals(first_character_cannot_be_space, message);
+    	verifyEquals("Customer ID cannot have first character space", message);
     }
     
     @AfterSuite
