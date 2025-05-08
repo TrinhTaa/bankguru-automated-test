@@ -29,5 +29,25 @@ public class PageGeneratorManager {
         return new DeleteCustomer(driver);
     }
 
+	public static NewAccountPage getNewAccountPage(WebDriver driver) {
+		return new NewAccountPage(driver);
+	}
+
+	public static EditAccountPage getEditAccountPage(WebDriver driver) {
+		return new EditAccountPage(driver);
+	}
+
+	public static DeleteAccountPage getDeleteAccountPage(WebDriver driver) {
+		return new DeleteAccountPage(driver);
+	}
+
+	public static MiniStatement getMiniStatementPage(WebDriver driver) {
+		return new MiniStatement(driver);
+	}
+
+	public static CustomizeStatement getCustomizePage(WebDriver driver) {
+		return new CustomizeStatement(driver);
+	}
+
 	
 }

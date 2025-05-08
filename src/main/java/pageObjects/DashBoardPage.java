@@ -14,6 +14,7 @@ public class DashBoardPage extends BasePage {
 	}
 
 	public void clickToMenuByText(String text) {
+		scrollToElementOnDown(driver, DashBoardUI.Dynamic_menu, text);
 		waitForElementClickable(driver, DashBoardUI.Dynamic_menu, text);
 		clickToElement(driver, DashBoardUI.Dynamic_menu, text);
 	}
